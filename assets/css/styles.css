@@ -48,8 +48,8 @@ button, input {
 .door-div {
     position: absolute;
     z-index: 2;
-    height: 8.1%;
-    width: 6.6%;
+    height: 8%;
+    width: 6.4%;
 }
 
 .door-div:hover {
@@ -141,35 +141,61 @@ button, input {
     overflow: hidden;
 }
 
-.desktop { display: block; }
-.tablet { display: none; }
-.mobile { display: none; }
+.chat-modal {
+    display: none; 
+    position: absolute;
+    margin: 0 auto;
+    z-index: 3; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.65); 
+    width: 25%;
+    overflow: hidden;
+}
 
-.one.active:hover { background-image: url('../images/doors/one.png'); }
-.two.active:hover { background-image: url('../images/doors/two.png'); }
-.three.active:hover { background-image: url('../images/doors/three.png'); }
-.four.active:hover { background-image: url('../images/doors/four.png'); }
-.five.active:hover { background-image: url('../images/doors/four.png'); }
-.six.active:hover { background-image: url('../images/doors/four.png'); }
-.seven.active:hover { background-image: url('../images/doors/four.png'); }
-.eight.active:hover { background-image: url('../images/doors/four.png'); }
-.nine.active:hover { background-image: url('../images/doors/four.png'); }
+.chat-modal-content {
+    margin: 2.5% auto; 
+    padding: 20px;
+    background: black;
+    border-radius: 0px;
+    border: 1px solid #c62b1c;
+    width: 50%;
+    overflow: scroll;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;  
+}
+
+.exit-chat-modal {
+    color: white;
+    float: right;
+}
+
+.exit-chat-modal:hover {
+    cursor: pointer;
+}
+
+.one.active { background-image: url('../images/doors/one.png'); background-size: contain; background-position: center center; }
+.two.active { background-image: url('../images/doors/two.png'); background-size: contain; background-position: center center;  }
+.three.active { background-image: url('../images/doors/three.png'); background-size: contain; background-position: center center;  }
+.four.active { background-image: url('../images/doors/four.png'); background-size: contain; background-position: center center;  }
+.five.active { background-image: url('../images/doors/five.png'); background-size: contain; background-position: center center;  }
+.six.active { background-image: url('../images/doors/six.png'); background-size: contain; background-position: center center;  }
+.seven.active { background-image: url('../images/doors/seven.png'); background-size: contain; background-position: center center;  }
+.eight.active { background-image: url('../images/doors/eight.png'); background-size: contain; background-position: center center; }
+.nine.active:hover { background-image: url('../images/doors/nine.png'); }
 
 /* ROW ONE DOORS */
-.one { right: 56.5%; top: 24.231%; }
-.two { right: 49.96%; top: 24.231%; }
-.three { right: 43.25%; top: 24.231%; }
+.one { right: 56.7%; top: 24.231%; }
+.two { right: 50%; top: 24.231%; }
+.three { right: 43.4%; top: 24.231%; }
 .four { right: 36.725%; top: 24.231%; }
-.five { right: 60.3%; top: 32.7%; width: 5.9%; height: 7.4%; }
-.six {right: 53.6%; top: 32.7%; width: 5.9%; height: 7.4%;  }
-.seven { right: 46.95%; top: 32.7%; width: 5.9%; height: 7.5%;  }
-.eight { right: 40.3%; top: 32.7%; width: 5.9%; height: 7.4%;  }
-.nine { right: 33.9%; top: 32.7%; width: 5.9%; height: 7.4%;  }
+.five { right: 60.2%; top: 32.9%; width: 5.9%; height: 7.7%; }
+.six { right: 53.8%; top: 32.9%; width: 5.9%; height: 7.7%;  }
+.seven { right: 47%; top: 32.7%; width: 6.1%; height: 7.9%;  }
+.eight { right: 40.5%; top: 32.9%; width: 5.9%; height: 7.7%;  }
+.nine { right: 33.9%; top: 32.7%; width: 5.9%; height: 7.9%;  }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .desktop { display: none; }        
-    .tablet { display: block; }
-    .mobile { display: none; }
 
     /* ROW ONE DOORS */
     .door-div { height: 7.8%; width: 6.5%}
@@ -185,17 +211,29 @@ button, input {
 
 }
 
-@media screen and (max-width: 767px) {
-    .desktop { display: block; }
-    .tablet { display: none; }
-    .mobile { display: block; }
+@media screen and (min-width: 501px) and (max-width: 767px) {
 
     /* ROW ONE DOORS */
-    .door-div { height: 7.8%; width: 6.4%; }
+    /* .door-div { height: 7.8%; width: 6.4%; }
     .one { right: 56.7%; top: 24.1%; }
     .two { right: 50.1%; top: 24%.1; }
     .three { right: 43.4%; top: 24.1%; }
-    .four { right: 36.9%; top: 24.1%; }
+    .four { right: 36.9%; top: 24.1%; } */
+
+    /* .eight{ right: 21.5%; } */
+}
+
+@media screen and (max-width: 500px) {
+    .door-div { height: 7.9%; width: 17.8%; }
+    .one { right: 67.4%; top: 24.3%; }
+    .two { right: 49.1%; top: 24%.1; }
+    .three { right: 30.4%; top: 24.3%; }
+    .four { right: 12%; top: 24.3%; }
+    .five { right: 76.4%; }
+    .six { right: 58.6%; width: 16.8%; }
+    .seven { right: 40%; width: 17.4%; }
+    .eight { right: 21.5%; width: 17.4%; }
+    .nine { right: 3%; }
 }
 
 #landing-modal {
@@ -316,6 +354,7 @@ cursor: pointer;
 }
 
 .social-shares {
+    display: none !important;
     background: #c62b1c;
     margin-top: -10px;
     padding: 20px;
@@ -327,6 +366,46 @@ cursor: pointer;
 .social-shares a {
     border: 1px solid black;
     background: black;
+    padding: 7.5px 20px 9px 20px;
+    color: white;
+    text-decoration: none;
+    font-family: 'RochesterSerial';
+    margin-right: 15px;
+    margin-left: 15px
+}
+
+.modal-social-shares {
+    background: #c62b1c;
+    margin-top: -10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.modal-social-shares a {
+    border: 1px solid black;
+    background: black;
+    padding: 7.5px 20px 9px 20px;
+    color: white;
+    text-decoration: none;
+    font-family: 'RochesterSerial';
+    margin-right: 15px;
+    margin-left: 15px
+}
+
+.merch-drop-buttons {
+    background: black ;
+    margin-top: -10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.merch-drop-buttons a {
+    border: 1px solid black;
+    background: #c62b1c;
     padding: 7.5px 20px 9px 20px;
     color: white;
     text-decoration: none;
@@ -378,18 +457,32 @@ cursor: pointer;
     padding: 5px 15px 7px 15px;
 }
 
+.chat-link {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.chat-link p {
+    font-family: 'RochesterSerial';
+    color: white;
+    background: black;
+    text-decoration: none;
+    padding: 5px 15px 7px 15px;
+}
+
 .slick-dots li button:before {
     color: white !important;
 }
 
 
 
-@media only screen and (min-width: 769px) and (max-width: 1024px) {   
+@media only screen and (min-width: 768px) and (max-width: 1024px) {   
     #dsp-header {
         display: none;
     }
 
-    /* #dsp {
+     #dsp {
         position: relative;
         display: block;
         z-index: 1;
@@ -397,12 +490,29 @@ cursor: pointer;
         left: 0;
         top: 0;
         max-width: none;
-        /* margin-top: background.offsetHeight */
-    } */
+        /* margin-top: 80vh; */
+     } 
 }
 
+.desktop {
+    display: block;
+}
 
-@media only screen and (max-width: 768px) {
+.mobile {
+    display: none;
+}
+@media only screen and (max-width: 767px) {
+    .myVideo {
+        display: none;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
     #landing-modal {
         top: 0;
         align-items: start;

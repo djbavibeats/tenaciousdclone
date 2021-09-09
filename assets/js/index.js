@@ -1,4 +1,5 @@
 var modal = document.getElementById("modal");
+var chatModal = document.getElementById("chat-modal");
 
 let pageY = 0;
 let pageX = 0;
@@ -61,7 +62,9 @@ window.onclick = function(event) {
         console.log(document.getElementById('myVideo'));
     }
     document.getElementById('myVideo').play();
+
     if (event.target == modal) {
+        console.log("WHERE")
         $('#modal').animate({ width: '0%', height: '0%', top: pageY, left: pageX }, 'easeInOutCubic', function(){ 
             modal.style.display = "none";
             document.getElementById('dynamicCopy').innerHTML = ``
@@ -70,6 +73,9 @@ window.onclick = function(event) {
 
         });
         $('#dynamicPhoto').animate({ minHeight: '0vh' }, 'easeInOutCubic', function() {});
+    }
+    if (event.target == chatModal) {
+        $('#chat-modal').css({ display: 'none' });
     }
 }
 
@@ -85,6 +91,14 @@ function closeModal() {
     });
     $('#dynamicPhoto').animate({ minHeight: '0vh' }, 'easeInOutCubic', function() {});
 
+}
+
+function openChatModal() {
+    $('#chat-modal').css({ display: 'flex', width: '100%', height: '100%', top: "0%", left: "0%" });
+}
+
+function closeChatModal() {
+    $('#chat-modal').css({ display: 'none' });
 }
 
 function submitForm() {
@@ -144,26 +158,7 @@ $(window).resize(function() {
         console.log('mobile')
         if (window.matchMedia("(orientation: portrait)").matches) {
             console.log('portrait')
-            // you're in PORTRAIT mode
-            $('#mobile-instructions').css({
-                'position': 'absolute',
-                'width': '100%',
-                'height': '100vh',
-                'top': '0',
-                'z-index': '10',
-                'display': 'flex'
-            })
-
-            $('#dsp').css({ 'display': 'none' })
-        }
-    
-        if (window.matchMedia("(orientation: landscape)").matches) {
-            console.log('landscape')
             mobile = true;
-            // you're in LANDSCAPE mode
-            $('#mobile-instructions').css({
-                'display' : 'none'
-            })
     
             let dsp = document.getElementById('dsp');
             console.log(dsp);
@@ -180,7 +175,52 @@ $(window).resize(function() {
                 'left': '0',
                 'top': '0',
                 'maxWidth': 'none',
-                'margin-top': background.offsetHeight
+                'margin-top': '110vh'
+            })
+
+            $( "#mobile" ).css({
+                'display': 'block'
+            })
+
+            $( "#desktop" ).css({
+                'display': 'none'
+            })
+            $( "#myVideo").css({
+                'display': 'none'
+            })
+        }
+    
+        if (window.matchMedia("(orientation: landscape)").matches) {
+            console.log('landscape')
+            mobile = true;
+    
+            let dsp = document.getElementById('dsp');
+            console.log(dsp);
+            document.getElementById('background').insertAdjacentElement('afterend', dsp);
+            
+            $( "#dsp-header" ).css({ 'display': 'none' });
+            let background = document.querySelector('.background');
+
+            $( "#dsp" ).css({
+                'position': 'relative',
+                'display': 'block',
+                'zIndex': '1',
+                'width': '100%',
+                'left': '0',
+                'top': '0',
+                'maxWidth': 'none',
+                'margin-top': background.offsetWidth - 150
+            })
+
+            $( "#mobile" ).css({
+                'display': 'none'
+            })
+
+            $( "#desktop" ).css({
+                'display': 'block'
+            })
+            $( "#myVideo").css({
+                'display': 'block'
             })
         }
     
@@ -194,17 +234,28 @@ $(window).resize(function() {
             
             $( "#dsp-header" ).css({ 'display': 'none' });
             let background = document.querySelector('.background');
-
-            $( "#dsp" ).css({
-                'position': 'relative',
-                'display': 'block',
-                'zIndex': '1',
-                'width': '100%',
-                'left': '0',
-                'top': '0',
-                'maxWidth': 'none',
-                'margin-top': background.offsetHeight
-            })
+            if (window.matchMedia("(orientation: landscape)").matches) {
+                $( "#dsp" ).css({
+                    'position': 'relative',
+                    'display': 'block',
+                    'zIndex': '1',
+                    'width': '100%',
+                    'left': '0',
+                    'top': '0',
+                    'maxWidth': 'none',
+                    'margin-top': background.offsetHeight
+                })
+            } else if (window.matchMedia("(orientation: portrait)").matches) {
+                $( "#dsp" ).css({
+                    'position': 'relative',
+                    'display': 'block',
+                    'zIndex': '1',
+                    'width': '100%',
+                    'left': '0',
+                    'top': '0',
+                    'maxWidth': 'none',
+                    'margin-top': background.offsetHeight                })
+            }
         } else {
             console.log('desktop')
             mobile = false;
@@ -217,25 +268,31 @@ function loadStreaming(platformName) {
     switch(platformName) {
         case('spotify'):
             if (mobile) {
-                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id="spotify" src="https://open.spotify.com/embed/album/1AckkxSo39144vOBrJ1GkS?theme=0" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe><div class="social-shares"><a href="https://twitter.com/intent/tweet?text=Day%201%20complete!%20You%20have%20once%20again%20proved%20you%20are%20a%20worthy%20member%20of%20the%20D-ciples.%20😈🔥🤘🏻&url=https://tenaciousd.com" target="_blank" rel="noopener noreferrer">Twitter</a><a href=""https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftenaciousd.com%2F&amp;src=sdkpreparse" target="_blank" rel="noopener noreferrer">Facebook</a></div>`
+                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id="spotify" src="https://open.spotify.com/embed/album/1AckkxSo39144vOBrJ1GkS?theme=0" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
             } else {
-                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id="spotify" src="https://open.spotify.com/embed/album/1AckkxSo39144vOBrJ1GkS?theme=0" width="300" height="300" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe><div class="social-shares"><a href="https://twitter.com/intent/tweet?text=Day%201%20complete!%20You%20have%20once%20again%20proved%20you%20are%20a%20worthy%20member%20of%20the%20D-ciples.%20😈🔥🤘🏻&url=https://tenaciousd.com" target="_blank" rel="noopener noreferrer">Twitter</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftenaciousd.com%2F&amp;src=sdkpreparse" target="_blank" rel="noopener noreferrer">Facebook</a></div>`
+                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id="spotify" src="https://open.spotify.com/embed/album/1AckkxSo39144vOBrJ1GkS?theme=0" width="300" height="300" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
             }
             break;
         case('apple'):
             if (mobile) {
-                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe src="https://embed.music.apple.com/us/album/tenacious-d/385553664?app=music&amp;itsct=music_box_player&amp;itscg=30200&amp;ct=albums_tenacious_d&amp;ls=1" height="300px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *;" style="width: 100%; max-width: 100%; overflow: hidden; border-radius: 10px; background: transparent;"></iframe><div class="social-shares"><a href="https://twitter.com/intent/tweet?text=Day%201%20complete!%20You%20have%20once%20again%20proved%20you%20are%20a%20worthy%20member%20of%20the%20D-ciples.%20😈🔥🤘🏻&url=https://tenaciousd.com" target="_blank" rel="noopener noreferrer">Twitter</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftenaciousd.com%2F&amp;src=sdkpreparse" target="_blank" rel="noopener noreferrer">Facebook</a></div>` 
+                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe src="https://embed.music.apple.com/us/album/tenacious-d/385553664?app=music&amp;itsct=music_box_player&amp;itscg=30200&amp;ct=albums_tenacious_d&amp;ls=1" height="300px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *;" style="width: 100%; max-width: 100%; overflow: hidden; border-radius: 10px; background: transparent;"></iframe>` 
             } else {
-                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe src="https://embed.music.apple.com/us/album/tenacious-d/385553664?app=music&amp;itsct=music_box_player&amp;itscg=30200&amp;ct=albums_tenacious_d&amp;ls=1" height="300px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *;" style="width: 100%; max-width: 300px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe><div class="social-shares"><a href="https://twitter.com/intent/tweet?text=Day%201%20complete!%20You%20have%20once%20again%20proved%20you%20are%20a%20worthy%20member%20of%20the%20D-ciples.%20😈🔥🤘🏻&url=https://tenaciousd.com" target="_blank" rel="noopener noreferrer">Twitter</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftenaciousd.com%2F&amp;src=sdkpreparse" target="_blank" rel="noopener noreferrer">Facebook</a></div>` 
+                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe src="https://embed.music.apple.com/us/album/tenacious-d/385553664?app=music&amp;itsct=music_box_player&amp;itscg=30200&amp;ct=albums_tenacious_d&amp;ls=1" height="300px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *;" style="width: 100%; max-width: 300px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe>` 
             }
             break;
         case('tidal'):
             if (mobile) {
-                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe src="https://embed.tidal.com/tracks/5119732" allowfullscreen="allowfullscreen" frameborder="0" style="width:100%;height:96px"></iframe><div class="social-shares"><a href="https://twitter.com/intent/tweet?text=Day%201%20complete!%20You%20have%20once%20again%20proved%20you%20are%20a%20worthy%20member%20of%20the%20D-ciples.%20😈🔥🤘🏻&url=https://tenaciousd.com" target="_blank" rel="noopener noreferrer">Twitter</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftenaciousd.com%2F&amp;src=sdkpreparse" target="_blank" rel="noopener noreferrer">Facebook</a></div>` 
+                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe src="https://embed.tidal.com/tracks/5119732" allowfullscreen="allowfullscreen" frameborder="0" style="width:100%;height:96px"></iframe>` 
             } else {
-                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe src="https://embed.tidal.com/tracks/5119732" allowfullscreen="allowfullscreen" frameborder="0" style="width:300px;height:96px"></iframe><div class="social-shares"><a href="https://twitter.com/intent/tweet?text=Day%201%20complete!%20You%20have%20once%20again%20proved%20you%20are%20a%20worthy%20member%20of%20the%20D-ciples.%20😈🔥🤘🏻&url=https://tenaciousd.com" target="_blank" rel="noopener noreferrer">Twitter</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftenaciousd.com%2F&amp;src=sdkpreparse" target="_blank" rel="noopener noreferrer">Facebook</a></div>` 
+                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe src="https://embed.tidal.com/tracks/5119732" allowfullscreen="allowfullscreen" frameborder="0" style="width:300px;height:96px"></iframe>` 
             }
             break;
+        case('amazon'):
+            if (mobile) {
+                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id='AmazonMusicEmbedB003YOASY2' src='https://music.amazon.com/embed/B003YOASY2/?id=QbILIUuadD&marketplaceId=ATVPDKIKX0DER&musicTerritory=US' width='100%' height='100px' style='border:1px solid rgba(0, 0, 0, 0.12);max-width:'></iframe>`
+            } else {
+                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id='AmazonMusicEmbedB003YOASY2' src='https://music.amazon.com/embed/B003YOASY2/?id=QbILIUuadD&marketplaceId=ATVPDKIKX0DER&musicTerritory=US' width='100%' height='300px' style='border:1px solid rgba(0, 0, 0, 0.12);max-width:'></iframe>`
+            }
         default:
             break;
     }

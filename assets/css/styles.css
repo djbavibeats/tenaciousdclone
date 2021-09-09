@@ -161,8 +161,22 @@ button, input {
     border: 1px solid #c62b1c;
     width: 50%;
     overflow: scroll;
-    max-height: calc(100vh - 80px);
+    height: 50%;
     overflow-y: auto;  
+}
+
+@media screen and (min-width: 501px) and (max-width: 768px) {
+    .chat-modal-content {
+        width: 95%;
+        height: 55%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .chat-modal-content {
+        height: 70%;
+        width: 95%;
+    }
 }
 
 .exit-chat-modal {

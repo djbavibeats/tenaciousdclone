@@ -162,7 +162,8 @@ button, input {
     width: 50%;
     overflow: scroll;
     height: 50%;
-    overflow-y: auto;  
+    /* max-height: calc(100vh - 80px); */
+    /* overflow-y: auto;   */
 }
 
 @media screen and (min-width: 501px) and (max-width: 768px) {
@@ -196,9 +197,8 @@ button, input {
 .six.active { background-image: url('../images/doors/six.png'); background-size: contain; background-position: center center;  }
 .seven.active { background-image: url('../images/doors/seven.png'); background-size: contain; background-position: center center;  }
 .eight.active { background-image: url('../images/doors/eight.png'); background-size: contain; background-position: center center; }
-.nine.active { background-image: url('../images/doors/nine.png'); background-size: contain; background-position: center center; }
-.ten.active:hover { background-image: url('../images/doors/nine.png'); }
-
+.nine.active { background-image: url('../images/doors/nine.png');  background-size: contain; background-position: center center; }
+.ten.active:hover { background-image: url('../images/doors/ten.png'); }
 
 /* ROW ONE DOORS */
 .one { right: 56.7%; top: 24.231%; }
@@ -210,7 +210,7 @@ button, input {
 .seven { right: 47%; top: 32.7%; width: 6.1%; height: 7.9%;  }
 .eight { right: 40.5%; top: 32.9%; width: 5.9%; height: 7.7%;  }
 .nine { right: 33.9%; top: 32.7%; width: 5.9%; height: 7.9%;  }
-.ten { right: 60.2%; top: 41.4%; width: 6.15%; height: 16.4%; }
+.ten { right: 60.2%; top: 41.4%; width: 6.15%; height: 16.3%; }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
@@ -251,6 +251,7 @@ button, input {
     .seven { right: 40%; width: 17.4%; }
     .eight { right: 21.5%; width: 17.4%; }
     .nine { right: 3%; }
+    .ten { right: 76.2%; height: 16.3%; }
 }
 
 #landing-modal {

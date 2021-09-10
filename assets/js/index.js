@@ -282,12 +282,18 @@ function loadStreaming(platformName) {
             } else {
                 document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id='AmazonMusicEmbedB003YOASY2' src='https://music.amazon.com/embed/B003YOASY2/?id=QbILIUuadD&marketplaceId=ATVPDKIKX0DER&musicTerritory=US' width='100%' height='300px' style='border:1px solid rgba(0, 0, 0, 0.12);max-width:'></iframe>`
             }
+            break;
         default:
+            if (mobile) {
+                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id="spotify" src="https://open.spotify.com/embed/album/1AckkxSo39144vOBrJ1GkS?theme=0" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
+            } else {
+                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id="spotify" src="https://open.spotify.com/embed/album/1AckkxSo39144vOBrJ1GkS?theme=0" width="300" height="300" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
+            }
             break;
     }
 }
 
-if (getCookie('email_signup') && getCookie('dsp')) {
+if (getCookie('email_signup')) {
     document.getElementById('landing-modal').style.display = 'none';
     loadStreaming(getCookie('dsp'))
 }

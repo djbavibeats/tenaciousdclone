@@ -118,17 +118,17 @@
     <script>
         console.log("slick 1")
         $(document).ready(function(){
+            $('.day-ten-slider').slick({
+                infinite: true,
+                arrows: true,
+                slidesToShow: 1,
+                // variableWidth: true,
+                centerMode: true,
+                initialSlide: 0,
+                lazyLoad: 'onDemand'
+            })
             $('.day-ten-slider').slickLightbox({
                 itemSelector: '> li > a',
-                slick: {
-                    infinite: true,
-                    arrows: true,
-                    slidesToShow: 1,
-                    // variableWidth: true,
-                    centerMode: true,
-                    initialSlide: 0,
-                    lazyLoad: 'onDemand'
-                }
             });
         });
     </script>

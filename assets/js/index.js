@@ -95,7 +95,7 @@ function submitForm() {
     if (document.querySelector('input[name = "dsp"]:checked')) {
         dspSubmit = document.querySelector('input[name = "dsp"]:checked').value;
     } else {
-        dspSubmit = "spotify";
+        dspSubmit = "spotify--";
     }
     
     document.cookie = `email_signup=${email}`;
@@ -291,7 +291,7 @@ function loadStreaming(platformName) {
     }
 }
 
-if (getCookie('email_signup')) {
+if (getCookie('email_signup') && getCookie('dsp')) {
     document.getElementById('landing-modal').style.display = 'none';
     loadStreaming(getCookie('dsp'))
 }

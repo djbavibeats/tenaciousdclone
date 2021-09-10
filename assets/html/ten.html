@@ -16,6 +16,11 @@
           margin: 0 auto;
       }
 
+      .slick-track {
+          display: flex !important;
+          align-items: center !important;
+      }
+
       .slick-dots li button:before, .slick-dots li.slick-active button:before {
           color: white;
       }
@@ -28,7 +33,8 @@
         }
 
         .day-ten-slider-image {
-            height: 255px;
+            height: auto;
+            width: 225px !important;
             padding-right: 25px;
             border-right: none;
         }
@@ -114,7 +120,8 @@
                 arrows: true,
                 slidesToShow: 1,
                 variableWidth: true,
-                centerMode: true
+                centerMode: true,
+                initialSlide: 0
             });
         });
     </script>

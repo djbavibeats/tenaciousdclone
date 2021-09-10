@@ -95,7 +95,7 @@ function submitForm() {
     if (document.querySelector('input[name = "dsp"]:checked')) {
         dspSubmit = document.querySelector('input[name = "dsp"]:checked').value;
     } else {
-        dspSubmit = "spotify--";
+        dspSubmit = "spotify";
     }
     
     document.cookie = `email_signup=${email}`;
@@ -253,6 +253,7 @@ $(window).resize(function() {
     }).resize();
 
 function loadStreaming(platformName) {
+    console.log(platformName)
     switch(platformName) {
         case('spotify'):
             if (mobile) {
@@ -282,11 +283,6 @@ function loadStreaming(platformName) {
                 document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id='AmazonMusicEmbedB003YOASY2' src='https://music.amazon.com/embed/B003YOASY2/?id=QbILIUuadD&marketplaceId=ATVPDKIKX0DER&musicTerritory=US' width='100%' height='300px' style='border:1px solid rgba(0, 0, 0, 0.12);max-width:'></iframe>`
             }
         default:
-            if (mobile) {
-                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id="spotify" src="https://open.spotify.com/embed/album/1AckkxSo39144vOBrJ1GkS?theme=0" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
-            } else {
-                document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id="spotify" src="https://open.spotify.com/embed/album/1AckkxSo39144vOBrJ1GkS?theme=0" width="300" height="300" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
-            }
             break;
     }
 }

@@ -98,8 +98,8 @@ function submitForm() {
         dspSubmit = "spotify";
     }
     
-    document.cookie = `email_signup=${email}`;
-    document.cookie = `dsp=${dspSubmit}`;
+    document.cookie = `email_signup=${email}; max-age=31536000;`;
+    document.cookie = `dsp=${dspSubmit} max-age=31536000;`;
 
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
         let info = {

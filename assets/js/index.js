@@ -78,14 +78,14 @@ window.onclick = function(event) {
 console.log(document.getElementById('exit-modal'));
 function closeModal() {
     console.log("here")
-    $('#modal').animate({ width: '0%', height: '0%', top: pageY, left: pageX }, 'easeInOutCubic', function(){ 
-        modal.style.display = "none";
-        document.getElementById('dynamicCopy').innerHTML = ``
-        $('#dsp').css({ 'visibility': 'visible' })
-        $( "#body" ).css({ 'overflow': 'auto' })
+    // $('#modal').animate({ width: '0%', height: '0%', top: pageY, left: pageX }, 'easeInOutCubic', function(){ 
+    //     modal.style.display = "none";
+    //     document.getElementById('dynamicCopy').innerHTML = ``
+    //     $('#dsp').css({ 'visibility': 'visible' })
+    //     $( "#body" ).css({ 'overflow': 'auto' })
 
-    });
-    $('#dynamicPhoto').animate({ minHeight: '0vh' }, 'easeInOutCubic', function() {});
+    // });
+    // $('#dynamicPhoto').animate({ minHeight: '0vh' }, 'easeInOutCubic', function() {});
 
 }
 

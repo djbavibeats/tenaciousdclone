@@ -1,5 +1,4 @@
 var modal = document.getElementById("modal");
-var chatModal = document.getElementById("chat-modal");
 
 let pageY = 0;
 let pageX = 0;
@@ -74,9 +73,6 @@ window.onclick = function(event) {
         });
         $('#dynamicPhoto').animate({ minHeight: '0vh' }, 'easeInOutCubic', function() {});
     }
-    if (event.target == chatModal) {
-        $('#chat-modal').css({ display: 'none' });
-    }
 }
 
 console.log(document.getElementById('exit-modal'));
@@ -91,14 +87,6 @@ function closeModal() {
     });
     $('#dynamicPhoto').animate({ minHeight: '0vh' }, 'easeInOutCubic', function() {});
 
-}
-
-function openChatModal() {
-    $('#chat-modal').css({ display: 'flex', width: '100%', height: '100%', top: "0%", left: "0%" });
-}
-
-function closeChatModal() {
-    $('#chat-modal').css({ display: 'none' });
 }
 
 function submitForm() {

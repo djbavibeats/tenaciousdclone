@@ -475,20 +475,6 @@ cursor: pointer;
     padding: 5px 15px 7px 15px;
 }
 
-.chat-link {
-    position: absolute;
-    top: 50px;
-    right: 50px;
-}
-
-.chat-link p {
-    font-family: 'RochesterSerial';
-    color: white;
-    background: black;
-    text-decoration: none;
-    padding: 5px 15px 7px 15px;
-}
-
 .slick-dots li button:before {
     color: white !important;
 }

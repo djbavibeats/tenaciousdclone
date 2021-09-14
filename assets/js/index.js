@@ -1,4 +1,5 @@
 var modal = document.getElementById("modal");
+var chatModal = document.getElementById("chat-modal")
 
 let pageY = 0;
 let pageX = 0;
@@ -70,6 +71,10 @@ window.onclick = function(event) {
 
         });
         $('#dynamicPhoto').animate({ minHeight: '0vh' }, 'easeInOutCubic', function() {});
+    } else if (event.target == chatModal) {
+        $(chatModal).css({
+            'display' : 'none'
+        })
     }
 }
 
@@ -87,7 +92,21 @@ function closeModal() {
 
 }
 
+function openChatModal() {
+    $(chatModal).css({
+        'display' : 'block',
+        'width' : '100%',
+        'height' : '100%',
+        'top' : '0'
+    })
+}
 
+function closeChatModal() {
+    $('#chat-modal').css({
+        'display' : 'none'
+    })
+
+}
 
 
 

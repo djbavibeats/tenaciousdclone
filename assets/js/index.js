@@ -56,14 +56,12 @@ Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
 window.onclick = function(event) {
     if(document.getElementById('myVideo').playing){ // checks if element is playing right now
         // Do anything you want to
-        console.log("Already playing")
     } else {
         console.log(document.getElementById('myVideo'));
     }
     document.getElementById('myVideo').play();
 
     if (event.target == modal) {
-        console.log("WHERE")
         $('#modal').animate({ width: '0%', height: '0%', top: pageY, left: pageX }, 'easeInOutCubic', function(){ 
             modal.style.display = "none";
             document.getElementById('dynamicCopy').innerHTML = ``
@@ -88,6 +86,10 @@ function closeModal() {
     $('#dynamicPhoto').animate({ minHeight: '0vh' }, 'easeInOutCubic', function() {});
 
 }
+
+
+
+
 
 function submitForm() {
     let email = document.getElementById('email').value;
@@ -253,7 +255,6 @@ $(window).resize(function() {
     }).resize();
 
 function loadStreaming(platformName) {
-    console.log(platformName)
     switch(platformName) {
         case('spotify'):
             if (mobile) {
@@ -282,7 +283,6 @@ function loadStreaming(platformName) {
             } else {
                 document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id='AmazonMusicEmbedB003YOASY2' src='https://music.amazon.com/embed/B003YOASY2/?id=QbILIUuadD&marketplaceId=ATVPDKIKX0DER&musicTerritory=US' width='100%' height='300px' style='border:1px solid rgba(0, 0, 0, 0.12);max-width:'></iframe>`
             }
-            break;
         default:
             if (mobile) {
                 document.getElementById("dsp").innerHTML = `<div id="dsp-header">Tenacious D</div><iframe id="spotify" src="https://open.spotify.com/embed/album/1AckkxSo39144vOBrJ1GkS?theme=0" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>`

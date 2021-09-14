@@ -161,7 +161,7 @@ button, input {
     border: 1px solid #c62b1c;
     width: 50%;
     overflow: scroll;
-    height: 50%;
+    height: 70%;
     /* max-height: calc(100vh - 80px); */
     /* overflow-y: auto;   */
 }
@@ -197,8 +197,12 @@ button, input {
 .six.active { background-image: url('../images/doors/six.png'); background-size: contain; background-position: center center;  }
 .seven.active { background-image: url('../images/doors/seven.png'); background-size: contain; background-position: center center;  }
 .eight.active { background-image: url('../images/doors/eight.png'); background-size: contain; background-position: center center; }
-.nine.active { background-image: url('../images/doors/nine.png');  background-size: contain; background-position: center center; }
-.ten.active:hover { background-image: url('../images/doors/ten.png'); }
+.nine.active { background-image: url('../images/doors/nine.png'); background-size: contain; background-position: center center; }
+.ten.active { background-image: url('../images/doors/ten.png'); background-size: contain; background-position: center center; }
+.twelve.active { background-image: url('../images/doors/twelve.png'); background-size: contain; background-position: center center;  }
+.thirteen.active { background-image: url('../images/doors/thirteen.png'); background-size: contain; background-position: center center; }
+.fourteen.active:hover { background-image: url('../images/doors/fourteen.png'); }
+
 
 /* ROW ONE DOORS */
 .one { right: 56.7%; top: 24.231%; }
@@ -211,6 +215,9 @@ button, input {
 .eight { right: 40.5%; top: 32.9%; width: 5.9%; height: 7.7%;  }
 .nine { right: 33.9%; top: 32.7%; width: 5.9%; height: 7.9%;  }
 .ten { right: 60.2%; top: 41.4%; width: 6.15%; height: 16.3%; }
+.twelve { right: 46.9%; top: 41.2%; width: 6.15%; height: 7.8%; }
+.thirteen { right: 40.3%; top: 41.2%; width: 6.15%; height: 7.8%; }
+.fourteen { right: 33.8%; top: 41.3%; width: 6%; height: 16.3%; }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
@@ -252,6 +259,9 @@ button, input {
     .eight { right: 21.5%; width: 17.4%; }
     .nine { right: 3%; }
     .ten { right: 76.2%; height: 16.3%; }
+    .twelve { right: 40%; top: 41.2%; height: 7.9%; width: 17.4%; }
+    .thirteen { right: 22.2%; top: 41.2%; height: 7.9%; width: 16.6%; }
+    .fourteen { right: 3.7%; top: 41.5%; height: 16.3%; width: 16.8%; }
 }
 
 #landing-modal {
@@ -389,7 +399,7 @@ cursor: pointer;
     text-decoration: none;
     font-family: 'RochesterSerial';
     margin-right: 15px;
-    margin-left: 15px
+    margin-left: 15px;
 }
 
 .modal-social-shares {
@@ -399,6 +409,8 @@ cursor: pointer;
     display: flex;
     justify-content: center;
     border: 2px solid black;
+    position: relative;
+    z-index: 4;
 }
 
 .modal-social-shares a {
@@ -409,7 +421,7 @@ cursor: pointer;
     text-decoration: none;
     font-family: 'RochesterSerial';
     margin-right: 15px;
-    margin-left: 15px
+    margin-left: 15px;
 }
 
 .merch-drop-buttons {
@@ -474,6 +486,21 @@ cursor: pointer;
     text-decoration: none;
     padding: 5px 15px 7px 15px;
 }
+
+.chat-link {
+    position: absolute;
+    top: 70px;
+    right: 50px;
+}
+
+.chat-link {
+    font-family: 'RochesterSerial';
+    color: white;
+    background: black;
+    text-decoration: none;
+    padding: 5px 15px 7px 15px;
+}
+
 
 .slick-dots li button:before {
     color: white !important;

@@ -1,5 +1,5 @@
 var modal = document.getElementById("modal");
-var chatModal = document.getElementById("chat-modal")
+var chatModal = document.getElementById("chat-modal");
 
 let pageY = 0;
 let pageX = 0;
@@ -89,7 +89,6 @@ function closeModal() {
 
     });
     $('#dynamicPhoto').animate({ minHeight: '0vh' }, 'easeInOutCubic', function() {});
-
 }
 
 function openChatModal() {
@@ -105,10 +104,7 @@ function closeChatModal() {
     $('#chat-modal').css({
         'display' : 'none'
     })
-
 }
-
-
 
 function submitForm() {
     let email = document.getElementById('email').value;

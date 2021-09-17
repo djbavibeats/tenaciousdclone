@@ -161,7 +161,7 @@ button, input {
     border: 1px solid #c62b1c;
     width: 50%;
     overflow: scroll;
-    height: auto;
+    height: 50%;
     /* max-height: calc(100vh - 80px); */
     /* overflow-y: auto;   */
 }
@@ -175,8 +175,8 @@ button, input {
 
 @media screen and (max-width: 500px) {
     .chat-modal-content {
-        height: auto;
-        width: auto;
+        height: 75%;
+        width: 90%;
     }
 }
 
@@ -202,7 +202,9 @@ button, input {
 .twelve.active { background-image: url('../images/doors/twelve.png'); background-size: contain; background-position: center center;  }
 .thirteen.active { background-image: url('../images/doors/thirteen.png'); background-size: contain; background-position: center center; }
 .fourteen.active { background-image: url('../images/doors/fourteen.png'); background-size: contain; background-position: center center; }
-.fifteen.active:hover { background-image: url('../images/doors/thirteen.png'); }
+.fifteen.active { background-image: url('../images/doors/fifteen.png'); background-size: contain; background-position: center center; }
+.sixteen.active { background-image: url('../images/doors/sixteen.png'); background-size: contain; background-position: center center;  }
+.seventeen.active:hover { background-image: url('../images/doors/seventeen.png'); }
 
 
 /* ROW ONE DOORS */
@@ -220,6 +222,8 @@ button, input {
 .thirteen { right: 40.3%; top: 41.2%; width: 6.15%; height: 7.8%; }
 .fourteen { right: 33.8%; top: 41.3%; width: 6%; height: 16.3%; }
 .fifteen { right: 53.6%; top: 49.8%; width: 6.1%; height: 7.7%;  }
+.sixteen { right: 47%; top: 49.6%; width: 6.1%; height: 7.9%;  }
+.seventeen { right: 40.4%; top: 49.6%; width: 6.1%; height: 7.9%;  }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
@@ -267,6 +271,8 @@ button, input {
     .thirteen { right: 22.2%; top: 41.2%; height: 7.9%; width: 16.6%; }
     .fourteen { right: 3.7%; top: 41.5%; height: 16.3%; width: 16.8%; }
     .fifteen { right: 58.6%; top: 49.8%;  width: 16.8%; }
+    .sixteen { right: 40%; top: 49.8%;  width: 16.8%; }
+    .seventeen { right: 22%; top: 49.8%;  width: 16.8%; }
 }
 
 #landing-modal {
